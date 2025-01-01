@@ -1,0 +1,39 @@
+SSH Key erstellen:
+ssh-keygen
+
+SSH Key public auslesen:
+ls -al ~/.ssh
+cat ~/.ssh/id_rsa.pub
+
+neues Textfile erstellen:
+nano Dateiname.txt
+
+neuen Ordner anlegen:
+mkdir Ordnername
+
+git pushen und pullen:
+ cd ~/dev_ws/src/my_package
+ git status
+ git add launch/listener.launch.py
+ git add launch/talker.launch.py
+ git add package.xml
+ git commit -a
+ git commit -m "talker&listener Schreibfehler ausgebessert"
+ git push origin
+ 
+ 
+Neuer Workspace erstellen:
+ros2 pkg create --build-type ament_cmake my_package
+
+Übergangsweise sourcen:
+source install/setup.bash
+
+permantly sourcen:
+gedit ~/.bashrc
+source ~/dev_ws/install/setup.bash
+
+ROS colcon machen:
+Colcon build --symlink-install
+
+Launch File ausführen:
+ros2 launch my_package talker.launch.py
