@@ -1,15 +1,19 @@
 SSH Key erstellen:
 ssh-keygen
 
+
 SSH Key public auslesen:
 ls -al ~/.ssh
 cat ~/.ssh/id_rsa.pub
 
+
 neues Textfile erstellen:
 nano Dateiname.txt
 
+
 neuen Ordner anlegen:
 mkdir Ordnername
+
 
 git pushen und pullen:
  cd ~/dev_ws/src/my_package
@@ -25,15 +29,77 @@ git pushen und pullen:
 Neuer Workspace erstellen:
 ros2 pkg create --build-type ament_cmake my_package
 
+
 Übergangsweise sourcen:
 source install/setup.bash
+
 
 permantly sourcen:
 gedit ~/.bashrc
 source ~/dev_ws/install/setup.bash
 
+
 ROS colcon machen:
-Colcon build --symlink-install
+colcon build --symlink-install
+
 
 Launch File ausführen:
 ros2 launch my_package talker.launch.py
+ros2 launch my_package listener.launch.py
+
+RPLidar starten
+ros2 launch sllidar_ros2 view_sllidar_a1_launch.py
+
+colcon build --packages-select <name-of-pkg>
+
+
+Realsense starten:
+realsense-viewer
+
+https://eleccelerator.com/wiki/index.php?title=Raspbian_Buster_ROS_RealSense#Installing_ROS_Package:_realsense-ros
+
+
+Programm kompilieren mit Makerfile:
+make
+sudo ./main
+
+
+GPIO Pins manuell setzen:
+gpio -g write 13 0 
+gpio -1 mode 15 out
+gpio -1 write 15 1
+gpio -1 read 15
+gpio -g readall
+
+
+c++ Programm compilieren mit g++ Compiler:
+g++ sample.cpp PiPS2.cpp -o sample -lwiringPi
+sudo ./sample
+
+
+python Programm ausführen:
+sudo python3 key_robot.py
+
+
+.sh Datei ausführen:
+bash start_lidar.sh 
+
+
+IP Adresse rausfinden:
+ifconfig
+Raspi: 192.168.1.45
+Tower LAN: 192.168.2.112
+Tower WLAN: 192.168.1.47
+Surface: 192.168.1.17
+Router: 192.168.1.1
+
+
+mit SSH verbinden:
+ssh daniel@192.168.1.45
+-> psw: 23071996
+
+
+Python Script ausführen:
+daniel@Raspberry:~/protobuf/python$
+python3 setup.py build --cpp_implementation
+sudo python3 setup.py install --cpp_implementation
